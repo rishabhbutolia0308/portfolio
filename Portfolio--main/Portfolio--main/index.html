@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RISHABH BUTOLIA| Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+  <!-- Main Navigation Bar with Smart Project Finder -->
+  <header class="navbar-wrapper" id="siteNavbar">
+    <div class="navbar-container">
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="#site-top" class="nav-brand" aria-label="RISHABH BUTOLIA PORTFOLIO">AS</a>
+        <ul class="nav-links">
+          <li><a href="#about-heading">About</a></li>
+          <li><a href="#skills-heading">Skills</a></li>
+          <li><a href="#projects-heading">Projects</a></li>
+          <li><a href="#weather-heading">Weather</a></li>
+          <li><a href="#chat-heading">AI Chat</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar-actions">
+        <!-- Smart Project Finder Control -->
+        <div class="project-finder-wrapper" id="projectFinderWrapper">
+          <div class="project-finder-input-box" id="projectFinderInputBox">
+            <span class="finder-search-icon" id="finderSearchIcon" aria-hidden="true" title="Click to search">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input
+              type="search"
+              id="projectSearchInput"
+              class="project-finder-input"
+              placeholder="Find a project..."
+              autocomplete="off"
+              spellcheck="false"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              aria-controls="projectFinderDropdown"
+              aria-label="Search projects by name, language, skill, or tool"
+            >
+            <kbd class="finder-shortcut-hint" id="finderShortcutHint" title="Press / to search" aria-hidden="true">/</kbd>
+            <button
+              type="button"
+              id="finderClearBtn"
+              class="finder-clear-btn"
+              aria-label="Clear search query"
+              style="display: none;"
+            >
+              &times;
+            </button>
+          </div>
+
+          <!-- Dropdown Results Panel -->
+          <div
+            id="projectFinderDropdown"
+            class="project-finder-dropdown"
+            role="listbox"
+            aria-label="Project search results"
+            style="display: none;"
+          >
+            <!-- Injected dynamically by JavaScript -->
+          </div>
+        </div>
+
+        <button id="themeToggle" type="button" class="theme-toggle-btn" aria-label="Toggle dark mode">
+          Switch to Dark Mode
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Screen reader live region for search results announcements -->
+  <div id="finderLiveAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="site-header" id="site-top">
+    <p class="eyebrow">Personal Portfolio</p>
+    <h1>RISHABH BUTOLIA</h1>
+    <p class="tagline">Aspiring Software Developer | AI & Data Science Student</p>
+  </div>
+
+  <main>
+    <section class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        Hi, I'm RISHABH BUTOLIA, a B.Tech student specializing in
+        Artificial Intelligence and Data Science. I'm passionate about
+        technology, problem-solving, and exploring how software and AI
+        can be used to solve real-world problems.
+      </p>
+      <p>
+        I'm continuously learning new technologies, developing my
+        technical skills, and working on projects that help me gain
+        practical experience. I'm eager to learn, collaborate with
+        others, and grow as a developer.
+      </p>
+    </section>
+
+    <section class="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <ul>
+          <li>Python, C, C++</li>
+          <li>HTML, CSS, JavaScript</li>
+          <li>PostgreSQL and SQL</li>
+          <li>NumPy</li>
+          <li>Git, GitHub, VS Code</li>
+          <li>AI-Assisted Development: Cursor, Bolt AI</li>
+      </ul>
+    </section>
+
+    <section class="projects" id="projects" aria-labelledby="projects-heading">
+      <div class="projects-header-row">
+        <h2 id="projects-heading">Projects</h2>
+      </div>
+
+      <!-- Filter status banner (shown when project list is filtered) -->
+      <div id="projectFilterStatus" class="project-filter-banner" style="display: none;" aria-live="polite">
+        <span id="projectFilterMsg"></span>
+        <button type="button" id="projectFilterResetBtn" class="filter-reset-btn">
+          Show all projects
+        </button>
+      </div>
+
+      <ul id="projectsList" class="projects-list">
+        
+        <!-- Project 1: C to Python Code Conversion -->
+        <li
+          id="project-c-to-python"
+          class="project-card"
+          data-title="C to Python Code Conversion"
+          data-technologies="C, Python, Logic, Git, GitHub"
+        >
+          <h3>C to Python Code Conversion</h3>
+          <p>
+            A project focused on converting C programs into Python,
+            helping demonstrate the implementation of programming
+            logic across different languages.
+          </p>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="project-tag">C</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Git</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/rishabhbutolia0308/factorial_25bcon2536"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+          </div>
+        </li>
+
+        <!-- Project 2: Reading List -->
+        <li
+          id="project-reading-list"
+          class="project-card"
+          data-title="Reading List"
+          data-technologies="Bolt AI, Vercel, HTML, CSS, JavaScript, Git, GitHub"
+        >
+          <h3>Reading List</h3>
+          <p>
+            A reading list website created using Bolt AI and Vercel,
+            designed to help users organize and keep track of their reading.
+          </p>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="project-tag">Bolt AI</span>
+            <span class="project-tag">Vercel</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Git</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/rishabhbutolia0308/reading-list"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+            <span class="link-divider" aria-hidden="true">|</span>
+            <a
+              href="https://student-reading-list-z7d3.bolt.host/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Website
+            </a>
+          </div>
+        </li>
+
+        <!-- Project 3: Quiz App -->
+        <li
+          id="project-quiz-app"
+          class="project-card"
+          data-title="Quiz App"
+          data-technologies="Cursor, JavaScript, HTML, CSS, Git, GitHub"
+        >
+          <h3>Quiz App</h3>
+          <p>
+            An interactive quiz application created using Cursor,
+            designed to let users answer questions through a quiz interface.
+          </p>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="project-tag">Cursor</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Git</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/rishabhbutolia0308/quiz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+            <span class="link-divider" aria-hidden="true">|</span>
+            <a
+              href="file:///C:/Users/WELCOME/Desktop/quiz/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Quiz App (Local)
+            </a>
+          </div>
+        </li>
+
+        <!-- Project 4: Weather App -->
+        <li
+          id="project-weather-app"
+          class="project-card"
+          data-title="Weather App"
+          data-technologies="JavaScript, Weather API, Fetch API, HTML, CSS, Git, GitHub"
+        >
+          <h3>Weather App</h3>
+          <p>
+            A weather feature integrated into my personal portfolio,
+            allowing users to enter a city and retrieve weather information.
+          </p>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">Weather API</span>
+            <span class="project-tag">Fetch API</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Git</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Srivastavaankur02/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+            <span class="link-divider" aria-hidden="true">|</span>
+            <a
+              href="file:///C:/Users/WELCOME/Desktop/portfolio/por/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Portfolio (Local)
+            </a>
+          </div>
+        </li>
+
+        <!-- Project 5: AI Chatbot -->
+        <li
+          id="project-ai-chatbot"
+          class="project-card"
+          data-title="AI Chatbot"
+          data-technologies="AI, Chatbot, LLM, JavaScript, APIs, HTML, CSS, Git, GitHub"
+        >
+          <h3>AI Chatbot</h3>
+          <p>
+            An AI chatbot integrated into my personal portfolio
+            to demonstrate a conversational interface for answering
+            questions about the portfolio and its technologies.
+          </p>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="project-tag">AI</span>
+            <span class="project-tag">Chatbot</span>
+            <span class="project-tag">LLM</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">APIs</span>
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">Git</span>
+            <span class="project-tag">GitHub</span>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/rishabhbutolia0308/portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub Repository
+            </a>
+            <span class="link-divider" aria-hidden="true">|</span>
+            <a
+              href="file:///C:/Users/WELCOME/Desktop/portfolio/por/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Portfolio (Local)
+            </a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="weather" aria-labelledby="weather-heading">
+      <h2 id="weather-heading">Weather</h2>
+
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter a city"
+      >
+
+      <button id="weatherButton" type="button">
+        Get Weather
+      </button>
+
+      <div id="weatherResult">
+        Enter a city to see the weather.
+      </div>
+    </section>
+
+    <section id="aiChatSection" class="ai-chat" aria-labelledby="chat-heading">
+      <h2 id="chat-heading">Ask My AI Assistant</h2>
+
+      <p>
+        Ask questions about my portfolio, projects, skills,
+        and technologies.
+      </p>
+
+      <div id="chatMessages" aria-live="polite"></div>
+
+      <div class="chat-controls">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Ask a question..."
+        >
+
+        <button id="sendButton" type="button">
+          Send
+        </button>
+      </div>
+
+      <p id="chatStatus" role="status"></p>
+
+      <p class="chat-note">
+        AI chat is available during the local classroom
+        demonstration only.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      RISHABH BUTOLIA —
+      Contact:
+      <a href="mailto:RISHABHBUTOLIA@GMAIL.COM">
+        RISHABHBUTOLIA@GMAIL.COM
+      </a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="config.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
